@@ -1,0 +1,793 @@
+body, html {
+	margin: 0 0 0 0;
+	font-size: 14px;
+	color: #666666;
+	text-align: center;
+	background-color: #EEEEEE;
+	font-family: android-freefont;
+}
+
+@font-face {
+    font-family: 'android-freefont';
+    src: url('roboto.eot');
+    src: url('roboto.eot') format('embedded-opentype'),
+         url('roboto.woff2') format('woff2'),
+         url('roboto.woff') format('woff'),
+         url('roboto.ttf') format('truetype'),
+         url('roboto.svg#RobotoCondensedLight') format('svg');
+}
+
+img {
+	border: none;
+}
+
+a {
+	color: #444444;
+	text-decoration: none;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+a:hover {
+	color: #777777;
+	text-decoration: none;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+p {
+	color:#666666;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+.pace {
+	-webkit-pointer-events: none;
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+.pace-inactive {
+	display: none;
+}
+
+.pace .pace-progress {
+	background: #29d;
+	position: fixed;
+	z-index: 2000;
+	top: 0;
+	right: 100%;
+	width: 100%;
+	height: 2px;
+}
+
+.pace .pace-progress-inner {
+	display: block;
+	position: absolute;
+	right: 0px;
+	width: 100px;
+	height: 100%;
+	box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+	opacity: 1.0;
+	-webkit-transform: rotate(3deg) translate(0px, -4px);
+	-moz-transform: rotate(3deg) translate(0px, -4px);
+	-ms-transform: rotate(3deg) translate(0px, -4px);
+	-o-transform: rotate(3deg) translate(0px, -4px);
+	transform: rotate(3deg) translate(0px, -4px);
+}
+
+.pace .pace-activity {
+	display: block;
+	position: fixed;
+	z-index: 2000;
+	top: 15px;
+	right: 15px;
+	width: 14px;
+	height: 14px;
+	border: solid 2px transparent;
+	border-top-color: #29d;
+	border-left-color: #29d;
+	border-radius: 10px;
+	-webkit-animation: pace-spinner 400ms linear infinite;
+	-moz-animation: pace-spinner 400ms linear infinite;
+	-ms-animation: pace-spinner 400ms linear infinite;
+	-o-animation: pace-spinner 400ms linear infinite;
+	animation: pace-spinner 400ms linear infinite;
+}
+
+@-webkit-keyframes pace-spinner {
+	0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@-moz-keyframes pace-spinner {
+	0% { -moz-transform: rotate(0deg); transform: rotate(0deg); }
+	100% { -moz-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@-o-keyframes pace-spinner {
+	0% { -o-transform: rotate(0deg); transform: rotate(0deg); }
+	100% { -o-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@-ms-keyframes pace-spinner {
+	0% { -ms-transform: rotate(0deg); transform: rotate(0deg); }
+	100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@keyframes pace-spinner {
+	0% { transform: rotate(0deg); transform: rotate(0deg); }
+	100% { transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+#tooltip {
+	padding: 4px;
+	border: 1px solid #FF0000;
+	color: #FFFFFF;
+	font-family: android-freefont;
+	font-size: 14px;
+	background: #000000;
+	opacity: .8;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity = 70)";
+	filter: Alpha(Opacity = 70);
+	z-index: 1000;
+}
+
+#background {
+	width: 100%;
+    height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.header {
+	top: 0;
+	width: 100%;
+	height: 60px;
+	background: #222222;
+	position: absolute;
+	text-align: left;
+	-moz-box-shadow: 0 0 5px #000000;
+	-webkit-box-shadow: 0 0 5px #000000;
+	box-shadow: 0 0 5px #000000;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color=#000000,direction=125,strength=3), progid:DXImageTransform.Microsoft.Alpha(Opacity = 90)";  
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=#000000,direction=125,strength=3), Alpha(Opacity = 90);
+	opacity: .9;
+    	z-index: 1;
+}
+
+.header a {
+	padding-left: 25px;
+	text-shadow: 2px 2px 4px #000000;
+	color: #ff0000;
+	font-family: android-freefont;
+	font-size: 26px;
+	text-decoration: none;
+}
+
+.header a:hover {
+	text-shadow: 0 0 10px #c83425;
+	color: #ad2d2d;
+}
+
+#links {
+	top: 5px;
+	right: 60px;
+	position: absolute;
+	opacity: .9;
+	z-index: 2;
+}
+
+#links p, #links a, #links span {
+	color: #cccccc;
+	text-decoration: none;
+	font-family: android-freefont;
+	font-size: 16px;
+}
+
+#links a:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.content {
+	width: 100%;
+	height: 480px;
+	position: absolute;
+	top: 6px;
+	z-index: 3;
+}
+
+#content-margin {
+	margin-top: 90px;
+}
+
+.content p {
+	color: #000000;
+	text-align: center;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+.content h1 {
+	color: #000000;
+	text-align: center;
+	font-family: android-freefont;
+	font-size: 20px;
+}
+
+.content img {
+	margin: 0 auto;
+}
+
+#content-photo {
+	margin: 0 auto;
+	text-align: center;
+}
+
+#content-photo img {
+	margin: 0 auto;
+	text-align: center;
+}
+
+#intro-buttons {
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 200px;
+}
+
+#intro-buttons a:hover {
+	text-shadow: 2px 2px 4px #000000;
+	color: #ff0000;
+	border: 2px solid #ff0000;
+	border-radius: 4px;
+}
+
+#photoblog-button {
+	color: #FFFFFF;
+	font-family: android-freefont;
+	font-size: 28px;
+	border: 2px solid #ffffff;
+	border-radius: 4px;
+}
+
+#blog-button {
+	color: #FFFFFF;
+	font-family: android-freefont;
+	font-size: 28px;
+	border: 2px solid #ffffff;
+	border-radius: 4px;
+}
+
+.back {
+	position: absolute;
+	top: 170px;
+	width: 40px;
+	height: 70px;
+	opacity: .6;
+	left: 0;
+	background-color: #999999;
+	color: #00ddff;
+	font-size: 20px;
+	padding-top: 46px;
+	-moz-box-shadow: 0 2px 5px #111111;
+	-webkit-box-shadow: 0 2px 5px #111111;
+	box-shadow: 0 2px 5px #111111;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color=#111111,direction=245,strength=3), progid:DXImageTransform.Microsoft.Alpha(Opacity = 40)";  
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=#111111,direction=245,strength=3), Alpha(Opacity = 40);
+    	z-index: 4;
+}
+
+.back:hover, .back a, .back a:hover {
+	color: red;
+	font-size: 21px;
+}
+
+.forward {
+	position: absolute;
+	top: 170px;
+	width: 40px;
+	height: 70px;
+	opacity: .6;
+	right: 0;
+	background-color: #999999;
+	color: #00ddff;
+	font-size: 20px;
+	padding-top: 46px;
+	-moz-box-shadow: 0 2px 5px #111111;
+	-webkit-box-shadow: 0 2px 5px #111111;
+	box-shadow: 0 0 5px #111111;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color=#111111,direction=125,strength=3), progid:DXImageTransform.Microsoft.Alpha(Opacity = 40)";
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=#111111,direction=125,strength=3), Alpha(Opacity = 40);
+    	z-index: 5;
+}
+
+.forward:hover, .forward a, .forward a:hover {
+	color: red;
+	font-size: 21px;
+}
+
+#info-show {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: auto;
+	height: auto;
+	z-index: 6;
+	display: none;
+}
+
+#info-show a {
+    	color: #666666;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+#info-show a:hover {
+    	color: #ffffff;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+#info-margin {
+	margin-left: 42px;
+	padding: 8px;
+}
+
+#info-photo {
+	display: none;
+	position: absolute;
+	top: 0;
+	width: 400px;
+	height: auto;
+	background-color: #222222;
+	-mozbox-shadow: 2px 2px 5px #111111;
+	-webkitbox-shadow: 2px 2px 5px #111111;
+	box-shadow: 2px 2px 5px #111111;
+	opacity: .9;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity = 90)";
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 90);
+	z-index: 7;
+}
+
+#info-photo p, #info-photo span {
+	color: #FFFFFF;
+	text-align: center;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+#info-photo a {
+	color: #666666;
+	text-decoration: none;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+#info-photo a:hover {
+	color: #777777;
+	text-decoration: none;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+#info-photo input, #info-photo button {
+	opacity: .4;
+	color: #FFFFFF;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity = 60)";
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 60);
+	border: 1px solid #000000;
+	background-color: #444444;
+}
+
+#info-photo input:hover, #info-photo button:hover {
+	color: #FFFFFF;
+	opacity: .9;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity = 90)";
+	filter: Alpha(Opacity = 90);
+	border: 1px solid #000000;
+	background-color: #666666;
+}
+
+#exif p {
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.thumbnail {
+	position: absolute;
+	top: 30px;
+	left: 35px;
+	width: auto;
+	height: auto;
+	z-index: 4;
+}
+
+#thumbnail-margin {
+	margin-top: 0;
+	padding: 25px;
+}
+
+.thumbnail a {
+	opacity: 1.0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity = 100)";
+	filter: Alpha(Opacity = 100);
+}
+
+#thumbnail-current {
+	opacity: .55;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity = 55)";
+	filter: Alpha(Opacity = 55);
+}
+
+#social-center {
+	margin: 0 auto;
+}
+
+#social {
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 8;
+}
+
+#social p, #social a {
+	text-decoration: none;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+#archive {
+	position: relative;
+	margin: 0 auto;
+	width: 770px;
+	height: auto;
+	background: #222222;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	-moz-box-shadow: 0 0 5px #111111;
+	-webkit-box-shadow: 0 0 5px #111111;
+	box-shadow: 0 0 5px #111111;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color=#111111,direction=125,strength=3)";
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=#111111,direction=125,strength=3);
+	z-index: 2;
+}
+
+.archive-margin {
+	top:80px;
+}
+
+#archive-category p, #archive-category span {
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+#archive-category a {
+	color: #999999;
+	text-decoration: none;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+#archive-category img {
+	opacity: .95;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity = 95)";
+	filter: Alpha(Opacity = 95);
+}
+
+#archive-category a:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+#about {
+	position: relative;
+	margin: 0 auto;
+	width: 770px;
+	height: auto;
+	background-color: #222222;
+	-moz-box-shadow: 0 0 5px #111111;
+	-webkit-box-shadow: 0 0 5px #111111;
+	box-shadow: 0 0 5px #111111;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color=#111111,direction=125,strength=3)";  
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=#111111,direction=125,strength=3);
+	z-index: 2;
+}
+
+.about-margin {
+	top: 80px;
+	bottom: 20px;
+}
+
+#about span, #about p {
+	color: #CCCCCC;
+	text-align: center;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+#about a {
+	color: #CCCCCC;
+	text-align: center;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+#about a:hover {
+	color: #777777;
+	text-align: center;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+#biography {
+	padding:30px;
+	color: #CCCCCC;
+	text-align: center;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+#biography span, #biography p {
+	color: #CCCCCC;
+	text-align: center;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+#biography a {
+	color: #CCCCCC;
+	text-align: center;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+#biography a:hover {
+	color: #999999;
+	text-align: center;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+.login {
+	margin: 0 auto;
+}
+
+#login-margin {
+	margin-top: 40px;
+}
+
+.login a, .login p {
+	color: #222222;
+	text-align: center;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+.login a:hover {
+	color: #666666;
+	text-align: center;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+.login input, .login button {
+	opacity: .4;
+	color: #FFFFFF;
+	font-size: 14px;
+	font-family: android-freefont;
+	border: 1px solid #000;
+	background-color: #444444;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity = 40)"; 
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 40);
+}
+
+.login input:hover, .login button:hover {
+	opacity: .9;
+	color: #FFFFFF;
+	font-size: 14px;
+	font-family: android-freefont;
+	border: 1px solid #000000;
+	background-color: #666666;
+	-moz-box-shadow: 0 0 10px #111111;
+	-webkit-box-shadow: 0 0 10px #111111;
+	box-shadow: 0 0 10px #111111;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity = 90)";
+	filter: Alpha(Opacity = 90);
+}
+
+.administration {
+	margin: 0 auto;
+	width: 750px;
+	height: auto;
+	text-align: center;
+	background-color: #222222;
+	-moz-box-shadow: 0 0 10px #111111;
+	-webkit-box-shadow: 0 0 10px #111111;
+	box-shadow: 0 0 10px #111111;
+}
+
+#administration {
+	margin-top:60px;
+	margin-bottom:30px;
+	padding: 10px;
+}
+
+#admintab p, #admintab a, #admintab span {
+	color: #000000;
+	text-align: center;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+#admintab a:hover {
+	color: #00AACC;
+	text-align: center;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+#admintab ul, #admintab li {
+	list-style: none;
+}
+
+#admintab input, #admintab textarea, #admintab select {
+	opacity: .9;
+	color: #FFFFFF;
+	border: none;
+	background-color: #333333;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity = 90)"; 
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 90);
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+#admintab input:hover, #admintab textarea:hover, #admintab select:hover {
+	opacity: .4;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity = 40)";
+	filter: Alpha(Opacity = 40);
+	background-color: #333333;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+#admintab button {
+	margin-left:10px;
+	padding-bottom:3px;
+	height: 21px;
+	opacity: .9;
+	border: none;
+	color: #FFFFFF;
+	background-color: #333333;
+	text-align: center;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity = 90)"; 
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 90);
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+#admintab button:hover {
+	opacity: .4;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity = 40)";
+	filter: Alpha(Opacity = 40);
+	background-color: #333333;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+.logout {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.logout p, .logout a {
+	color: #000000;
+	text-align: center;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+.logout a:hover {
+	color: #CD0A0A;
+	text-align: center;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+#photo_category span, #photo_category p, #photo_category a {
+	color: #000000;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+#photo_show span, #photo_show p, #photo_show a {
+	color: #000000;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+#photo_show a:hover {
+	color: #CD0A0A;
+	text-align: center;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+#categories span, #categories p, #categories a {
+	color: #000000;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+#manage_photos span, #manage_photos p, #manage_photos a {
+	color: #000000;
+	text-align: center;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+#manage_photos a:hover {
+	color: #CD0A0A;
+	text-align: center;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+#manage_comments span, #manage_comments p, #manage_comments a {
+	color: #000000;
+	text-align: center;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+#manage_comments a:hover {
+	color: #CD0A0A;
+	text-align: center;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+#manage_settings span, #manage_settings p, #manage_settings a {
+	color: #000000;
+	text-align: center;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+#manage_settings a:hover {
+	color: #CD0A0A;
+	text-align: center;
+	font-family: android-freefont;
+	font-size: 14px;
+}
+
+#edit-photo {
+	color: #666666;
+	font-size: 14px;
+	font-family: android-freefont;
+}
+
+#edit-photo input {
+	font-size: 14px;
+	font-family: android-freefont;
+	opacity: .4;
+	color: #FFFFFF;
+	border: none;
+	background-color: #333333;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity = 40)";  
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 40);
+}
+
+#edit-photo input:hover {
+	opacity: .9;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity = 90)";
+	filter: Alpha(Opacity = 90);
+	background-color: #333333;
+}
