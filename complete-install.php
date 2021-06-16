@@ -1,8 +1,6 @@
 <?php
 	include('pbadmin/mysql_connector.php');
-	session_cache_limiter('private, must-revalidate');
-	$cache_limit = session_cache_limiter();
-	session_cache_expire(3);
+	session_cache_expire(3600);
 	$cache_expire = session_cache_expire();
 	session_start();
 	$mysql = new mysql_class();
@@ -36,12 +34,11 @@
 	$biography = $mysql->filter_string_xss();
 	$mysql->filter_var = $_GET['captcha'];
 	$captcha_input = $mysql->filter_string_xss();
-	$mysql->filter_var = $_SESSION["text_captcha"];
-	$captcha_session = $mysql->filter_string_xss();
+	$session_captcha = $_SESSION["captcha_photo"];
 	if ($password === $password_repeat) {
 		$password_passed = true;
 		echo "pass";
-			if ($captcha_session === $captcha_input) {
+			if ($captcha_input == $session_captcha) {
 				$captcha_passed = true;
 				echo "pass";
 				$mysql->user = $db_user;
@@ -62,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `photoblog_user` (
   `user_password` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `user_temporal` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `user_timezone` varchar(140) COLLATE utf8_unicode_ci NOT NULL,
-  `user_transient` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `user_transient` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `user_biography` text COLLATE utf8_unicode_ci,
   `user_photoblog_title` text COLLATE utf8_unicode_ci NOT NULL,
   `user_photoblog_description` mediumtext COLLATE utf8_unicode_ci NOT NULL,
@@ -152,13 +149,10 @@ ALTER TABLE `photoblog_categories`
 				}
 			} else {
 				$captcha_passed = false;
-				session_destroy();
 				die("error in captcha fields");
 			}
 	} else {
 		$password_passed = false;
-		session_destroy();
 		die("error in password fields");
 	}
-	session_destroy();
 ?>

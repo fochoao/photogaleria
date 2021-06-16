@@ -1,9 +1,7 @@
 <?php
-  session_cache_limiter('private, must-revalidate');
-  $cache_limit = session_cache_limiter();
-  session_cache_expire(8);
-  $cache_expire = session_cache_expire();
-  session_start();
+	session_cache_expire(3600);
+	$cache_expire = session_cache_expire();
+	session_start();
 ?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -48,9 +46,6 @@
 				$('.header').hide();
 				$('.links').hide();
 				$('.content').hide();
-				$("#captcha").on('click',function(e){
-					$(".captcha_img").attr("src", "pbadmin/captcha.php"+'?'+Math.random());
-				});
 			};
 			function custom_alert(textmessage, titlemessage) {
 				if (!titlemessage)
@@ -120,7 +115,7 @@
 						<p>Photoblog Secret (use a random strong passphrase, not actually needed for logging in) <input type="text" alt="Photoblog Secret" title="Photoblog Secret" name="photoblog-secret" class="photoblog-secret" /></p>
 						<p>Timezone <?php include("pbadmin/showtimezone.php"); ?></p>
 						<p>Biography (About text, html tags accepted) <br /> <textarea rows="16" cols="70" alt="Biography" title="Biography" name="biography" class="biography"></textarea></p>
-						<br /><p>Type the next text (click on image to refresh) </p><p><a href="javascript:void(0);" id="captcha"><img src="pbadmin/captcha.php" class="captcha_img" alt="Captcha Image" title="Captcha" /></a></p>
+						<br /><p><?php $x = mt_rand(100,200999); $y = mt_rand(299910, 799200); print("<p>$x + $y</p>"); $_SESSION['captcha_photo'] = $x+$y; print_r($_SESSION['captcha_photo']); ?></p>
 						<p><input type="text" alt="Captcha" title="Captcha" name="captcha" /></p>
 						<br /><p>Database Host (usually just localhost, check your server documentation) <input type="text" alt="Database Host" title="Database Host" name="database-host" class="database-host" /></p>
 						<p>Database Name <input type="text" alt="Database Name" title="Database Name" name="database-name" class="database-name" /></p>

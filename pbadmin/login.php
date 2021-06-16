@@ -1,13 +1,10 @@
 <?php
-	$configuration_file = "config.php";
-	if (file_exists($configuration_file)) {
+	if (file_exists('config.php')) {
 		require_once('config.php');
 	} else {
 		die();
 	}
-	session_cache_limiter('private, must-revalidate');
-	$cache_limit = session_cache_limiter();
-	session_cache_expire(30);
+	session_cache_expire(3600);
 	$cache_expire = session_cache_expire();
 	session_start();
 	$server_self = $_SERVER['PHP_SELF'];
